@@ -1,0 +1,26 @@
+{% extends '_base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9" style="margin-bottom: 200px;">
+            <h1 class="my-3">About Me</h1>
+            <br>
+            <h3 class="my-3">{{ user.username }} </h3>
+            <hr>
+            <h6>가입일 : {{ user.date_joined }}</h6>
+            <br>
+            <h6>최근 로그인 날짜 : {{ user.last_login }}</h6>
+            <hr>
+
+            <a href="{% url 'users:disable-request' %}">탈퇴</a>
+            <!--<img width="100px" height="100px" src="{{ user.profile.image.url }}">-->
+        </div>
+    </div>
+</div>
+{% endblock %}

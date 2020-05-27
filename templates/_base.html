@@ -1,0 +1,84 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>Good Readers</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min (7).css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!--<link rel="stylesheet" href="/static/bootstrap.min (7).css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+</head>
+
+<!-- Custom styles for this template -->
+
+</head>
+
+<body>
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'core:home' %}">Home</a>
+            {% if user.is_authenticated %}
+            <a class="py-2 d-none d-md-inline-block">{{ user.username }}님, 반갑습니다.</a>
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'lists:list-home' %}">My Lists</a>
+            <a class="py-2 d-none d-md-inline-block" href="/users/profile/">Profile</a>
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'account_logout' %}">Logout</a>
+            {% else %}
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'account_login' %}">Login</a>
+            <a class="py-2 d-none d-md-inline-block" href="{% url 'account_signup' %}">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-dark bg-dark" style="display: flex;">
+        <a href="{% url 'core:home' %}" class="navbar-brand">GoodReads</a>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+    <hr>
+    <footer class="container py-5">
+        <div class="row" style="text-align: center; padding-top: 30px;">
+            <div class="col-6 col-md">
+                <a class="py-2">
+                    <i class="fas fa-book fa-2x" style="width:26px; height:26px;"></i>
+                </a>
+                <small class="d-block mb-3 text-muted" style="margin-top: 6px;">&copy; 2020, made by Yubin Cho.
+                </small>
+            </div>
+
+
+            <div class="col-6 col-md" style="margin-bottom: 30px; ">
+                <h5>Contact</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="mailto:yubincho9@gmail.com">yubincho9@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

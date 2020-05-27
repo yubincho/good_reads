@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h2 style="color:#383838; text-align: center; margin-bottom: 30px; margin-top: 150px;">새로나온 책
+    </h2>
+    <div class="row">
+        {% for book in object_list %}
+        {% if book.status == 'RA' %}
+
+        <div class="col-sm">
+            <div class="card" style="width: 12rem; ">
+                <a href="{% url 'books:detail' pk=book.id %}" class="btn btn-transparent"><img class="card-img-top"
+                        src="{{ book.image.url }}" style="height:15rem;"></a>
+            </div>
+            <br />
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

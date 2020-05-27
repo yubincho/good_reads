@@ -1,0 +1,149 @@
+{% extends '_base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% load i18n %}
+
+<body>
+
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-3 mt-4">
+                <div class="card mb-4 shadow-0" style="border-color: transparent;border-style: hidden;">
+                    <img src="{{ book.image.url }}" style="height:300px;">
+                    <div class="card-body" style="margin: auto;">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">리뷰 수 : {{ book.views_count }}</small>
+                            <br>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <tr>
+                                    <th>
+                                        <div style="font-size:13px; ">Rating</div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style=" background-color: #7B68EE;top:0; left:0; height:19px;width:30pxz-index:100; width:
+                                        calc(20% * {{ book.total_rating }})">
+                                            <img style="display: inline-block; height:23px;"
+                                                src="{% static 'image/stars.png' %}" alt="{{ book.total_rating }}"
+                                                title="{{ book.total_rating }}">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </small>
+                            <br>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center" style="margin-top: 7px;">
+                            <a href="{% url 'lists:add-list' book.id %}"
+                                class="btn btn-primary my-2">{% trans "Save to My Lists" %}</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-9 ">
+                <div class="card mb-6 shadow-0" style="border-color: transparent;border-style: hidden;">
+                    <div class="card-body">
+                        <h2 style="color:#708090">{{ book.title }}</h6>
+                            <br>
+                            <p>{{ book.author }}</p>
+
+                            <small class="text-muted">{{ book.publish_data }}</small>
+                            <hr>
+                            <p class="card-text">{{ book.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{ book.purchase_site }}" class="btn btn-primary my-2">
+                                        구매하러 가기</a>
+                                </div>
+                                <small class="text-muted"></small>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+
+    {% endfor %}
+    {% endif %}
+
+    <!-- 댓글 리스트 -->
+    <div class="container" style="margin-top: 30px;">
+        <div class="row mt-10">
+            <div class="col-md-12 comment-bg">
+                <div class="page-header">
+                    <h1>Reviews</h1>
+                </div>
+                <div class="col-lg-8 col-md-10 mx-auto" style="margin: 60px;">
+                    {% for review in book.reviews.all %}
+                    <div class="media" id="review-id-{{ review.pk }}">
+                        <div class="media-body">
+                            <div class="avatar" style="display: flex;">
+                                {% if review.user.socialaccount_set.all.0.get_avatar_url %}
+                                <img width="50px" class="d-flex mr-3 rounded-circle"
+                                    src="{{ review.user.socialaccount_set.all.0.get_avatar_url }}" alt="">
+                                {% else %}
+                                <img width="50px" class="d-flex mr-3 rounded-circle"
+                                    src="https://api.adorable.io/avatars/285/{{ review.user }}.png" alt="">
+                                {% endif %}
+
+                                <h5 class="media-heading user_name mt-3" style="margin: 0;">
+                                    {{ review.user.username }}
+                                </h5>
+
+                                <small class="text-muted" style="margin: auto;">
+                                    <div style="width:100px; position:relative; height:10px;">
+                                        <tr>
+                                            <td>
+                                                <div style=" background-color: #7B68EE;top:0; left:0; height:auto;width:30pxz-index:100; width:
+            calc(20% * {{ review.point }})">
+                                                    <img style="display: inline-block; height:22.5px; width:100px;"
+                                                        src="{% static 'image/stars.png' %}" alt="{{ review.point }}"
+                                                        title="{{ review.point }}">
+                                                </div>
+                                            </td>
+                                    </div>
+                                </small>
+                            </div>
+                            <br>
+                            {{ review.content }}
+                            <hr>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 댓글 등록하기 -->
+    <div class="card" style="width: 50rem; margin: auto;">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+            {% if user.is_authenticated or request.session.users %}
+            <form method="post" action="{{ object.get_absolute_url }}new_review/">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {% else %}
+            <a class="btn btn-outline-dark btn-block" href="{% url 'account_login' %}" role="button">로그인</a>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <br>
+
+    {% endblock %}

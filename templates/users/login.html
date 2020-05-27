@@ -1,0 +1,54 @@
+<h1>Welcome</h1>
+
+{% extends "_base.html" %}
+{% block content %}
+
+{% load socialaccount %}
+{% providers_media_js %}
+
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h1>로그인</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                {{ error }}
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6" style="justify-content: center; margin: auto;">
+                <form method="POST" action=".">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        <input type="{{ field.field.widget.input_type }}" class="form-control"
+                            id="{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+
+                    </div>
+                    {% if field.errors %}
+                    <span style="color:red">{{ field.errors }}</span>
+
+                    {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">로그인</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-5" style="text-align: center; margin:20px;">
+            <div class="col-6" style="justify-content: center; margin: auto;">
+                <button type="submit" class="btn" style="border-color:#66CDAA;"><a
+                        href="{% provider_login_url 'google' %}">Continue with
+                        Google</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

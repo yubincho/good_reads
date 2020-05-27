@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<br>
+
+<br>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Search Results </h1>
+        <p class="lead">{{ search }} 의 검색 결과입니다.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        {% for book in books %}
+
+        <div class="card" style="width: 18rem; margin:auto; margin-top: 30px;">
+            <a href="{{ book.get_absolute_url }}"><img src="{{book.image.url}}" class="card-img-top"></a>
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+            </div>
+            {% empty %}
+            <h5 style="margin: auto;">" No results found. "</h5>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
