@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     username = models.CharField(max_length=60, unique=True)
-    
+
     def __str__(self):
         if self.username == None:
             return "ERROR-CUSTOMER NAME IS NULL"
@@ -37,6 +37,3 @@ class AllLogin(models.Model):
 
     def __str__(self):
         return str(self.user) + ": " + str(self.date)
-
-
-
