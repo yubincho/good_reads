@@ -2,10 +2,8 @@
 # 프로젝트 title : Good Readers 
 ( 해외 GoodReads를 참고하여 만듦. )
 
-* 언어 : 파이썬
-* 프레임워크 : Django
-django version = 3 // 
-python version = 3.8
+* 언어 : 파이썬 ( python version = 3.8 )
+* 프레임워크 : Django ( django version = 3.1 )
 * 가상환경 = pipenv 이용.
 
 1. 기능
