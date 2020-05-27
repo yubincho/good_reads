@@ -17,8 +17,8 @@ python version = 3.8
 * 기타 : 댓글 기능, 평점 기능
 
 2. sublibrary 설치 방법 예
-*pipenv install django-allauth
-*pipenv install django-crispy-forms
+* pipenv install django-allauth
+* pipenv install django-crispy-forms
 + INSTALLED_APPS = ["django.contrib.sites",
     "crispy_forms", ] 
 + SITE_ID = 1
