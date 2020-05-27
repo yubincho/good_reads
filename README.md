@@ -2,11 +2,9 @@
 # 프로젝트 title : Good Readers 
 ( 해외 GoodReads를 참고하여 만듦. )
 
--언어 : 파이썬
--프레임워크 : Django
-django version = 3 
-python version = 3.8
--가상환경 = pipenv 이용.
+* 언어 : 파이썬 ( python version = 3.8 )
+* 프레임워크 : Django ( django version = 3.1 )
+* 가상환경 = pipenv 이용.
 
 1. 기능
 * 게시판 검색기능.
@@ -17,8 +15,8 @@ python version = 3.8
 * 기타 : 댓글 기능, 평점 기능
 
 2. sublibrary 설치 방법 예
-pipenv install django-allauth
-pipenv install django-crispy-forms
+* pipenv install django-allauth
+* pipenv install django-crispy-forms
 + INSTALLED_APPS = ["django.contrib.sites",
     "crispy_forms", ] 
 + SITE_ID = 1
