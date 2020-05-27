@@ -4,7 +4,7 @@
 
 * 언어 : 파이썬
 * 프레임워크 : Django
-django version = 3 
+django version = 3 // 
 python version = 3.8
 * 가상환경 = pipenv 이용.
 
