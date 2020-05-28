@@ -1,5 +1,5 @@
 
-# 프로젝트 title : Good Readers 
+# 프로젝트 title : Good Readers // http://mybookmanage.com/ 
 ( 해외 GoodReads를 참고하여 만듦. )
 
 * 언어 : 파이썬 ( python version = 3.8 )
@@ -21,4 +21,7 @@
     "crispy_forms", ] 
 + SITE_ID = 1
 + python manage.py migrate
+
+3. 배포
+* https://my.vultr.com/ 이용.
 
