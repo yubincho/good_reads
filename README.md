@@ -1,5 +1,5 @@
 
-# 프로젝트 title : Good Readers // http://mybookmanage.com/ 
+# 개인 작품 title : Good Readers // http://mybookmanage.com/ 
 ( 해외 GoodReads를 참고하여 만듦. )
 
 * 언어 : 파이썬 ( python version = 3.8 )
