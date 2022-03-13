@@ -16,7 +16,7 @@
 * ListView/DetailView & function base view를 혼합하여 사용.
 * 기타 : 댓글 기능, 평점 기능
 -------------------------------------------------------------------
- 
+  
 2. sublibrary 설치 방법 예
 * pipenv install django-allauth 
 * pipenv install django-crispy-forms
