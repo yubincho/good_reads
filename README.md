@@ -1,6 +1,6 @@
 
 # 개인 작품 title : Good Readers // http://mybookmanage.com/ 
-( 해외 GoodReads를 참고하여 만듦. )
+( 해외 GoodReads를 참고하여 만듦. )  
 
 * 언어 : 파이썬 ( python version = 3.8 )
 * 프레임워크 : Django ( django version = 3.1 ) 
