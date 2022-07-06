@@ -20,7 +20,7 @@
 2. sublibrary 설치 방법 예
 * pipenv install django-allauth 
 * pipenv install django-crispy-forms
-+ INSTALLED_APPS = ["django.contrib.sites",
++ INSTALLED_APPS = ["django.contrib.sites", 
     "crispy_forms", ] 
 + SITE_ID = 1
 + python manage.py migrate 
