@@ -22,7 +22,7 @@
 * pipenv install django-crispy-forms
 + INSTALLED_APPS = ["django.contrib.sites", 
     "crispy_forms", ] 
-+ SITE_ID = 1
++ SITE_ID = 1 
 + python manage.py migrate 
  
 --------------------------------------------------------------------
