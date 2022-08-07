@@ -23,7 +23,7 @@
 + INSTALLED_APPS = ["django.contrib.sites", 
     "crispy_forms", ] 
 + SITE_ID = 1 
-+ python manage.py migrate 
++ python manage.py migrate  
  
 --------------------------------------------------------------------
 
