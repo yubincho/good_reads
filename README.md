@@ -1,5 +1,7 @@
 
-# 개인 작품 title : Good Readers // http://mybookmanage.com/ 
+# 취업용 개인 프로젝트 
+title : Good Readers 
+( http://mybookmanage.com/으로 서버에 올렸으나 1년 후 서버 구동을 중지하였습니다. )
 ( 해외 GoodReads를 참고하여 만듦. )  
  
 * 언어 : 파이썬 ( python version = 3.8 )
