@@ -1,5 +1,5 @@
 
-# 취업을 위해 제작해 보았습니다. 
+## 토이 프로젝트(취업용)
 title : Good Readers 
 ( http://mybookmanage.com/으로 서버에 올렸으나 1년 후 서버 구동을 중지하였습니다. )
 ( 해외 GoodReads를 참고하여 만듦. )  
