@@ -3,7 +3,7 @@
 title : Good Readers 
 ( http://mybookmanage.com/으로 서버에 올렸으나 1년 후 서버 구동을 중지하였습니다. )
 ( 해외 GoodReads를 참고하여 만듦. )  
- 
+  
 * 언어 : 파이썬 ( python version = 3.8 )
 * 프레임워크 : Django ( django version = 3.1 ) 
 * 가상환경 = pipenv 이용.
