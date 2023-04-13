@@ -1,6 +1,6 @@
 
 ## 해외 GoodReads Clone 
-title : Good Readers 
+title : Good Readers  
 ( http://mybookmanage.com/으로 서버에 올렸으나 1년 후 서버 구동을 중지하였습니다. )
 ( 해외 GoodReads를 참고하여 만듦. )  
   
